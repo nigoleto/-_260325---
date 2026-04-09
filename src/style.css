@@ -937,7 +937,7 @@ footer {
     /* Center vertically */
     padding: var(--spacing-xl) 60px;
     /* Add significant horizontal padding */
-    gap: 20px;
+    gap: 15px;
     background-color: #f0f4f8;
     /* Apply the original section bg here if needed, or white */
     max-width: 60%;
@@ -1324,9 +1324,7 @@ footer {
 .tag-other {
     text-shadow: 2px 2px 18px rgba(0, 0, 0, 0.08);
     padding: 12px 24px;
-    --rx: 26%;
-    --ry: 40%;
-    border-radius: var(--rx) / var(--ry);
+    border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, .18);
     /* Pill shape */
     font-size: 1rem;
@@ -2095,5 +2093,255 @@ footer {
         font-size: 2rem;
         flex-direction: column;
         gap: 5px;
+    }
+}
+
+/* Comprehensive Mobile Responsive Adjustments */
+@media (max-width: 900px) {
+
+    /* Header & Nav */
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin-left: 0;
+        font-size: 0.95rem;
+    }
+
+    /* Section 1: Hero */
+    .hero-section {
+        flex-direction: column-reverse;
+        /* Already column-reverse but keeping here */
+        height: auto;
+        min-height: auto;
+        padding: 0;
+        /* Override old padding to remove gap above photo */
+        background-position: center top;
+    }
+
+    .hero-main-msg {
+        font-size: 1.4rem;
+        word-break: keep-all;
+    }
+
+    .hero-sub-msg {
+        font-size: 0.95rem;
+        word-break: keep-all;
+    }
+
+    .hero-section::before {
+        background: rgba(255, 255, 255, 0.85);
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-container {
+        padding: 50px 20px;
+        /* Equalized top and bottom spacing */
+        flex-direction: column;
+    }
+
+    .hero-left-text {
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 0;
+        /* Remove old margin to balance spacing */
+        max-width: 100%;
+    }
+
+    .hero-right-img {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        max-width: 100%;
+    }
+
+    .hero-doctor-img {
+        margin-bottom: 0;
+        margin-left: 0;
+        object-position: center 30%;
+    }
+
+    /* Section 2: Key Treatment Subjects */
+    .subjects-container {
+        flex-direction: column;
+    }
+
+    .subjects-left,
+    .subjects-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 40px 20px;
+    }
+
+    .subjects-title {
+        font-size: 1.6rem;
+    }
+
+    .tags-group {
+        justify-content: center;
+        gap: 12px 8px;
+        /* 줄간격(상하)은 12px, 좌우간격은 8px로 조절하여 밸런스 맞춤 */
+    }
+
+    .tag-resp,
+    .tag-skin,
+    .tag-other {
+        flex: 0 0 calc(33.333% - 6px);
+        max-width: calc(33.333% - 6px);
+        padding: 8px;
+        font-size: 0.82rem;
+        letter-spacing: -0.5px;
+        min-width: 0;
+        word-break: keep-all;
+        text-align: center;
+    }
+
+    /* Section 3: Principles */
+    .principles-section {
+        padding: 60px 20px;
+    }
+
+    .principles-section .solution-intro h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Section 4: Greeting */
+    .greeting-section {
+        min-height: auto;
+        flex-direction: column-reverse;
+    }
+
+    .greeting-left {
+        padding: 40px 20px;
+    }
+
+    .greeting-quote {
+        font-size: 1.1rem;
+    }
+
+    .director-name {
+        font-size: 1.6rem;
+        justify-content: center;
+    }
+
+    /* Section 5: Keypoints */
+    .keypoints-section {
+        padding: 80px 20px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    /* Section 6: Before/After */
+    .ba-section {
+        flex-direction: column;
+    }
+
+    .ba-title {
+        font-size: 1.6rem;
+    }
+
+    .ba-left,
+    .ba-right {
+        flex: 0 0 100%;
+        padding: 40px 20px;
+    }
+
+    .ba-list {
+        width: 100%;
+    }
+
+    .ba-carousel {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    /* Before/After Image and Label Reordering Trick */
+    .ba-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ba-images,
+    .ba-labels {
+        display: contents;
+        /* Strip out container wrapper in CSS flow */
+    }
+
+    .ba-img-before,
+    .ba-img-after {
+        border-left: none;
+        border-bottom: 2px solid #fff;
+    }
+
+    .ba-img-before {
+        order: 1;
+        aspect-ratio: 4/3;
+    }
+
+    .ba-lbl-before {
+        order: 2;
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    .ba-img-after {
+        order: 3;
+        aspect-ratio: 4/3;
+    }
+
+    .ba-lbl-after {
+        order: 4;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .ba-details {
+        order: 5;
+        margin-top: 15px;
+    }
+
+    .carousel-btn {
+        margin-top: 35%;
+        width: 40px;
+        font-size: 2.5rem;
+    }
+
+    /* Section 7: YouTube */
+    .youtube-section {
+        padding: 60px 20px;
+    }
+
+    .yt-title {
+        font-size: 1.6rem;
+    }
+
+    /* Section 8: Columns */
+    .columns-section {
+        padding: 60px 20px;
+    }
+
+    .col-list {
+        padding: 20px 10px;
+    }
+
+    /* Quick Menu */
+    #quick-menu {
+        display: none;
     }
 }
